@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,7 +17,7 @@
     <body>
         <div id="loading" style="display: block; opacity: 1;">Loading...</div>
         <div id="centre" style="display: none; opacity: 0;">
-            <div id="three">3.</div>
+            <div id="three">3.<input type="number" id="input-MOBILE"/></div>
             <div id="pi"></div>
             <input type="image" src="images/reset.png" id="reset"/>
             <div class="info-box" id="digits-box">Digits: <span id="digits-count">0</span></div>

@@ -1,3 +1,8 @@
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+} 
+
 body, html {
     padding: 0;
     margin: 0;
@@ -26,14 +31,29 @@ body, html {
 }
 
 #pi {
-    display: block;
     min-width: 300px;
     max-width: 600px;
+}
 
-    /* TODO: media queries here so that it's mobile compatible */
-    /* - well, won't mobile not even work? Since the keyboard won't open */
-    /* min-width: 50%;
-    max-width: 100%; */
+#input-MOBILE {
+    display: none;
+}
+
+@media screen and (max-width: 629px) {
+    /* comes into effect for screens less than or equal to 320 pixels */
+    #pi {
+      min-width: 90vw;
+      max-width: 90vw;
+    }
+
+    #input-MOBILE {
+        display: inline-block;
+    }
+}
+
+#pi {
+    display: block;
+
     min-height: 5rem;
 
     background-color: #fff;

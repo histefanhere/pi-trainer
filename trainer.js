@@ -4,6 +4,7 @@
     var loadingEl, centreEl, piEl, hintEl;
     var digitsCountEl, errorsCountEl, percentCountEl;
     var resetBtn;
+    var inputMOBILE;
 
     keys = {
         48: 0,
@@ -47,6 +48,8 @@
         percentCountEl = document.getElementById("percent-count");
 
         resetBtn = document.getElementById('reset');
+
+        inputMOBILE = document.getElementById('input-MOBILE');
 
         // TODO: Better way to show a hint
         // hintEl.addEventListener("click", toggleHint);
@@ -125,6 +128,10 @@
                     // TODO: We don't want it to be *that* easy!
                     // *code basically for showing hint*
                 }
+            }
+
+            if (inputMOBILE.value) {
+                inputMOBILE.value = "";
             }
 
             piEl.innerText = entered;
