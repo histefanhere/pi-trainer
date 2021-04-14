@@ -3,7 +3,7 @@
     var pi, entered = "", errors = 0, keys, hintShown = false;
     var loadingEl, centreEl, piEl, hintEl;
     var digitsCountEl, errorsCountEl, percentCountEl;
-    var resetBtn;
+    var resetBtn, hintBtn;
     var inputMOBILE;
 
     keys = {
@@ -47,12 +47,10 @@
         errorsCountEl = document.getElementById("errors-count");
         percentCountEl = document.getElementById("percent-count");
 
-        resetBtn = document.getElementById('reset');
+        resetBtn = document.getElementById('reset-button');
+        hintBtn = document.getElementById('hint-button')
 
         inputMOBILE = document.getElementById('input-MOBILE');
-
-        // TODO: Better way to show a hint
-        // hintEl.addEventListener("click", toggleHint);
 
         console.log("Loading pi from file \"./pi.txt\" - Now would be a good time to go and study!");
         setTimeout(getPi, 200);
@@ -84,13 +82,17 @@
             targets: centreEl,
             opacity: 1
         });
-        
+
         listenToEvents();
     }
 
     function listenToEvents() {
         resetBtn.addEventListener("click", function () {
             reset();
+        });
+
+        hintBtn.addEventListener('click', function () {
+            toggleHint();
         });
 
         window.addEventListener("keydown", function (e) {
@@ -101,8 +103,9 @@
             if (keyCode === 8 && entered.length > 0) {
                 entered = entered.substring(0, entered.length - 1);
                 e.preventDefault();
-                // hideHint();
             }
+
+            // TODO: Maybe these should be letter keys?
 
             // Delete Key
             else if (keyCode == 46) {
@@ -110,8 +113,9 @@
             }
 
             // Space
-            // } else if (keyCode === 32) {
-                // toggleHint();
+            else if (keyCode === 32) {
+                toggleHint();
+            }
 
             // Number
             else if (keys[keyCode] !== undefined) {
@@ -119,14 +123,11 @@
                 if (pi.charAt(entered.length) === key) {
                     // They've pressed the right key!
                     entered = entered + "" + key;
-                    // hideHint();
+
                 } else {
                     // They've pressed the WRONG key
                     errors += 1;
                     errorAnimation();
-
-                    // TODO: We don't want it to be *that* easy!
-                    // *code basically for showing hint*
                 }
             }
 
@@ -134,10 +135,18 @@
                 inputMOBILE.value = "";
             }
 
-            piEl.innerText = entered;
+            showEntered();
             updateInfos();
             percentCountEl.scrollIntoView();
         });
+    }
+
+    function showEntered() {
+        piEl.innerText = entered;
+        if (hintShown) {
+            let hintDigit = pi.charAt(entered.length);
+            piEl.innerHTML += "<span id=\"hint\">" + hintDigit + "</span>";
+        }
     }
 
     function errorAnimation () {
@@ -154,7 +163,7 @@
             });
         }
     }
-    
+
     function reset() {
         entered = "";
         errors = 0;
@@ -183,21 +192,8 @@
     }
 
     function toggleHint () {
-        if (hintShown)
-            hideHint();
-        else
-            showHint();
-    }
-
-    function showHint () {
-        piHintEl.innerText = pi.charAt(entered.length);
-        piHintEl.style.backgroundColor = "transparent";
-        hintShown = true;
-    }
-
-    function hideHint () {
-        piHintEl.innerHTML = "&nbsp;";
-        piHintEl.style.backgroundColor = "";
-        hintShown = false;
+        hintShown = !hintShown;
+        hintBtn.classList.toggle('hintShown');
+        showEntered();
     }
 })();

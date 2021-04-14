@@ -26,6 +26,10 @@ body, html {
     transform: translateX(-50%);
 }
 
+#loading {
+    top: 30%;
+}
+
 #three {
     font-size: 5em;
 }
@@ -40,7 +44,6 @@ body, html {
 }
 
 @media screen and (max-width: 629px) {
-    /* comes into effect for screens less than or equal to 320 pixels */
     #pi {
       min-width: 90vw;
       max-width: 90vw;
@@ -68,22 +71,40 @@ body, html {
     overflow-wrap: break-word;
 }
 
-#reset {
+#hint {
+    color: #d0d0d0;
+    transform: scale(0.5, 0.5);
+    font-size: 0.7em;
+}
+
+
+#buttons {
+    display: inline;
+    float: right;
+}
+
+#buttons input {
     appearance: none;
     border: none;
 
     padding: 0;
+    margin-left: 25px;
 
     display: inline;
-    float: right;
 
     height: 30px;
     width: 30px;
 }
 
-#reset:focus {
+#buttons input:focus {
     outline: none;
 }
+
+.hintShown {
+    /* Generated from this *very* cool project! https://codepen.io/sosuke/pen/Pjoqqp */
+    filter: invert(49%) sepia(96%) saturate(2265%) hue-rotate(145deg) brightness(98%) contrast(101%);
+}
+
 
 .info-box {
     display: block;
@@ -91,33 +112,7 @@ body, html {
     font-size: 1.3em;
 }
 
-/*#pi-text {
-    font-size: 75vmin;
-}
-
-#pi-hint {
-    opacity: 0.3;
-    cursor: pointer;
-    background-color: black;
-}
-
-#pi-digits-count {
-    display: block;
-    position: fixed;
-    font-size: 10vmin;
-    top: 0;
-    right: 0;
-    margin: 2vmin;
-    cursor: pointer;
-}
-
-#loading {
-    font-size: 10vw;
-    text-align: center;
-    width: 100%;
-}
-
-footer {
+/* footer {
     display: block;
     position: fixed;
     bottom: 0;
