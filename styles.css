@@ -3,25 +3,57 @@ body, html {
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: monospace;
-    background-color: #00f;
-    cursor: default;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #fcfcfc;
+    /* cursor: default; */
 }
 
-a {
-    color: black;
+#loading {
+    font-size: 5em;
 }
 
-#pi-text, #loading {
-    font-weight: bold;
+#centre, #loading {
     position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 20%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
-#pi-text {
+#three {
+    font-size: 5em;
+}
+
+#pi {
+    display: inline-block;
+    min-width: 300px;
+    max-width: 600px;
+
+    /* TODO: media queries here so that it's mobile compatible */
+    /* - well, won't mobile not even work? Since the keyboard won't open */
+    /* min-width: 50%;
+    max-width: 100%; */
+    min-height: 5rem;
+
+    background-color: #fff;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    padding: 2px;
+    font-size: 2em;
+
+    margin-bottom: 20px;
+
+    overflow-wrap: break-word;
+}
+
+.info-box {
+    margin-bottom: 8px;
+    font-size: 1.3em;
+}
+
+/*#pi-text {
     font-size: 75vmin;
 }
 
@@ -55,4 +87,4 @@ footer {
     text-align: center;
     font-size: 1.2vmin;
     margin-bottom: 0.3vmin;
-}
+} */
