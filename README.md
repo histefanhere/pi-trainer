@@ -1,16 +1,20 @@
-#π Trainer
+# π Trainer
+Congratulations on wanting to learn the mysterious digits of π! A truley exciting journey awaits you.
 
-Congratulations on wanting to learn more digits of π! An exciting journey awaits you.
+Pi trainer is a simple website for praciticing your Pi skills. It has minimalism in mind, yet still functional.
 
-##How to use the π trainer
+## How to use the π trainer
+When you open up the Pi traner, you'll see the digit *three*, followed by a *decimal point.* That's the start of Pi, and the rest is up to you - simply go ahead and start typing!
 
-When you open up the π trainer, you will be presented with a screen featuring the numeral three ("3") and a decimal point ("."). To the right of the decimal point is a shaded rectangle (representing the caret) and a number in the upper right-hand corner of the caret (displaying number of digits entered).
+If you make a mistake the screen will flash red to notify you, and your *errors* score will increase. Keep an eye out on your *percentage,* and try to keep it as low as possible (but don't worry if you get some errors, typing perfectly is very hard).
 
-Go ahead and start typing! π Trainer supports up to 10,000 digits of π. If you make a mistake, the correct number will be displayed in place of the caret; you can also click on the caret to display the hint. If you want to start over, click on the digit counter.
+A copy of the pi trainer is running live at [http://www.histefanhere.com/pi](http://www.histefanhere.com/pi). Go ahead and check it out.
 
-A copy of the pi trainer is running live at [http://pi.000a.biz/](http://pi.000a.biz/). Go ahead and check it out.
+## Contributing
+
+Can you think of another useful feature, or found a bug? Maybe you think Pi is wrong? All issues and pull requests are welcome!
 
 ## Credits
-Programming by Jacob Lindahl
+Original code by Jacob Lindahl, forked and maintained by Histefanhere.
 
-10,000 digits of π provided by Linux
+10,000 digits of Pi provided by the fundamental mathematical principles of the universe (and Linux).
