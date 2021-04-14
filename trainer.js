@@ -99,13 +99,19 @@
                 entered = entered.substring(0, entered.length - 1);
                 e.preventDefault();
                 // hideHint();
+            }
+
+            // Delete Key
+            else if (keyCode == 46) {
+                reset();
+            }
 
             // Space
             // } else if (keyCode === 32) {
                 // toggleHint();
 
             // Number
-            } else if (keys[keyCode] !== undefined) {
+            else if (keys[keyCode] !== undefined) {
                 let key = keys[keyCode].toString();
                 if (pi.charAt(entered.length) === key) {
                     // They've pressed the right key!

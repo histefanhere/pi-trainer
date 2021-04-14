@@ -61,6 +61,10 @@ body, html {
     width: 30px;
 }
 
+#reset:focus {
+    outline: none;
+}
+
 .info-box {
     display: block;
     margin-bottom: 8px;
