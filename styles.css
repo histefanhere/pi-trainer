@@ -26,7 +26,7 @@ body, html {
 }
 
 #pi {
-    display: inline-block;
+    display: block;
     min-width: 300px;
     max-width: 600px;
 
@@ -40,7 +40,7 @@ body, html {
 
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    padding: 2px;
+    padding: 8px;
     font-size: 2em;
 
     margin-bottom: 20px;
@@ -48,7 +48,21 @@ body, html {
     overflow-wrap: break-word;
 }
 
+#reset {
+    appearance: none;
+    border: none;
+
+    padding: 0;
+
+    display: inline;
+    float: right;
+
+    height: 30px;
+    width: 30px;
+}
+
 .info-box {
+    display: block;
     margin-bottom: 8px;
     font-size: 1.3em;
 }

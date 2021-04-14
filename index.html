@@ -8,20 +8,22 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet"> 
 
         <title>Pi</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
         <script src="trainer.js" async></script>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div id="loading" style="display: block;">Loading...</div>
-        <div id="centre" style="display: none;">
+        <div id="loading" style="display: block; opacity: 1;">Loading...</div>
+        <div id="centre" style="display: none; opacity: 0;">
             <div id="three">3.</div>
             <div id="pi"></div>
-
+            <input type="image" src="images/reset.png" id="reset"/>
             <div class="info-box" id="digits-box">Digits: <span id="digits-count">0</span></div>
             <div class="info-box" id="errors-box">Errors: <span id="errors-count">0</span></div>
             <div class="info-box" id="percent-box">Percentage: <span id="percent-count">0</span>%</div>
         </div>
     </body>
+    <!-- TODO: footer, and controls -->
 </html>
 
 <!-- <!doctype html>

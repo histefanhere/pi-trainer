@@ -3,6 +3,7 @@
     var pi, entered = "", errors = 0, keys, hintShown = false;
     var loadingEl, centreEl, piEl, hintEl;
     var digitsCountEl, errorsCountEl, percentCountEl;
+    var resetBtn;
 
     keys = {
         48: 0,
@@ -45,26 +46,49 @@
         errorsCountEl = document.getElementById("errors-count");
         percentCountEl = document.getElementById("percent-count");
 
-        // TODO: This was how you had to reset the count, but we'll think of something better than this.
-        // (a reset button would be nice)
-        // - ooooo, what if it had a cool SPIN animation when you clicked it
-        // digitsCountEl.addEventListener("click", function () {
-        //     entered = "";
-        //     piEntryEl.innerText = "";
-        //     hideHint();
-        //     piDigitsCountEl.innerText = "0";
-        // });
+        resetBtn = document.getElementById('reset');
 
         // TODO: Better way to show a hint
         // hintEl.addEventListener("click", toggleHint);
 
-        console.log("Loading pi from file \"./pi.txt\" - Go ahead and study it if you wish. Thanks to http://www.geom.uiuc.edu/~huberty/math5337/groupe/digits.html for 100,000 digits of PI!");
-        pi = getPI();
+        console.log("Loading pi from file \"./pi.txt\" - Now would be a good time to go and study!");
+        setTimeout(getPi, 200);
+    }
+    
+    function getPi() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "pi.txt");
+        xhr.onload = function () { onPi(this) };
+        xhr.send();
+    }
+    
+    function onPi(xhr) {
+        pi = xhr.responseText;
+
         console.log("Pi finished loading.");
 
-        // TODO: Nice smoother fade animation here
-        loadingEl.style.display = "none";
-        centreEl.style.display = "block";
+        let tl = anime.timeline({
+            duration: 500,
+            easing: 'easeInOutCubic'
+        })
+        tl
+        .add({
+            targets: loadingEl,
+            opacity: 0,
+            complete: () => {loadingEl.style.display = "none"; centreEl.style.display = "block";}
+        })
+        .add({
+            targets: centreEl,
+            opacity: 1
+        });
+        
+        listenToEvents();
+    }
+
+    function listenToEvents() {
+        resetBtn.addEventListener("click", function () {
+            reset();
+        });
 
         window.addEventListener("keydown", function (e) {
             // TODO: These are depreciated
@@ -99,7 +123,7 @@
 
             piEl.innerText = entered;
             updateInfos();
-            digitsCountEl.innerText = "" + entered.length;
+            percentCountEl.scrollIntoView();
         });
     }
 
@@ -117,6 +141,21 @@
             });
         }
     }
+    
+    function reset() {
+        entered = "";
+        errors = 0;
+        piEl.innerText = "";
+        updateInfos();
+
+        anime({
+            targets: resetBtn,
+            rotate: -360,
+            easing: "easeOutBack",
+            duration: 500,
+            complete: anime.set(resetBtn, {rotate: 0})
+        })
+    }
 
     function updateInfos () {
         digits = entered.length;
@@ -128,15 +167,6 @@
         else {
             percentCountEl.innerText = Math.round(100 * digits / (digits + errors));
         }
-    }
-
-    function getPI () {
-        // TODO: Maybe use jquery here instead of raw XML requests?
-        // Would stop error of XML request on main thread
-        var xhr = new XMLHttpRequest();
-        xhr.open("get", "pi.txt", false);
-        xhr.send();
-        return xhr.responseText;
     }
 
     function toggleHint () {
