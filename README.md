@@ -8,7 +8,7 @@ When you open Pi trainer, you'll see the digit *three*, followed by a *decimal p
 
 If you make a mistake the screen will flash red to notify you, and your *errors* score will increase - try to keep it as low as possible (but don't worry if you get some miss-clicks, typing perfectly is *very* hard). Keep an eye out on your *percentage,* which tracks what percentage of your presses are correct.
 
-A copy of the Pi trainer is running live at [http://www.histefanhere.com/pi](http://www.histefanhere.com/pi), Go ahead and check it out.
+Want to try it out? A copy of the Pi trainer is already running live at [histefanhere.github.io/pi-trainer](https://histefanhere.github.io/pi-trainer/), go ahead and type in as many digits as you know!
 
 ## Contributing
 
