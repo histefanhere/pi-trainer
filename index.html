@@ -15,6 +15,10 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <div id="help">
+            <!-- <a href="#help-modal"><img src="images/info.png"></a> -->
+            <input type="image" src="images/info.png" id="help-modal-btn"/>
+        </div>
         <div id="loading" style="display: block; opacity: 1;">Loading...</div>
         <div id="centre" style="display: none; opacity: 0;">
             <div id="three">3.<input type="number" id="input-MOBILE"/></div>
@@ -23,12 +27,41 @@
                 <input type="image" src="images/hint.png" title="Toggle hint" id="hint-button"/>
                 <input type="image" src="images/reset.png" title="Clear all digits" id="reset-button"/>
             </div>
-            <div class="info-box" id="digits-box">Digits: <span id="digits-count">0</span></div>
-            <div class="info-box" id="errors-box">Errors: <span id="errors-count">0</span></div>
-            <div class="info-box" id="percent-box">Percentage: <span id="percent-count">0</span>%</div>
+            <div class="info-box">Digits: <span id="digits-count">0</span></div>
+            <div class="info-box">Errors: <span id="errors-count">0</span></div>
+            <div class="info-box">Percentage: <span id="percent-count">0</span>%</div>
+        </div>
+        <div class="modal-hidden" id="help-modal">
+            <div>
+                <a href="#" title="Close" id="help-modal-close">&times;</a>
+                <h1>Pi Trainer</h1>
+                <p>
+                    A simple website for practicing your Pi digit memory skills. made with beauty, minimalism, and slick animations in mind.
+                </p>
+                <p>
+                    Type in digits of Pi. Click the reset button once you're done, or press the hint button to get some extra help :)
+                </p>
+                Controls:
+                <table>
+                    <tr>
+                        <td class="hotkey-col-1">0-9</td><td>Type Digit</td>
+                    </tr>
+                    <tr>
+                        <td class="hotkey-col-1">R</td><td>Reset Digits</td>
+                    </tr>
+                    <tr>
+                        <td class="hotkey-col-1">H</td><td>Toggle Hint</td>
+                    </tr>
+                </table>
+
+                <br/>
+
+                <span class="help-made-with">
+                    Made with ❤️ by <a href="https://github.com/histefanhere" class="gh-link" target="_blank" rel="noopener noreferrer">Histefanhere</a>. Available on <a href="https://github.com/histefanhere/pi-trainer" class="gh-link" target="_blank" rel="noopener noreferrer">Github</a>.
+                </span>
+                </div>
         </div>
     </body>
-    <!-- TODO: footer, and controls -->
 </html>
 
 <!-- <!doctype html>

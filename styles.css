@@ -112,6 +112,91 @@ body, html {
     font-size: 1.3em;
 }
 
+
+
+#help {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding: 20px;
+}
+
+#help input {
+    height: 30px;
+    width: 30px;
+}
+
+#help-modal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    transition: all 0.2s;
+}
+
+.modal-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#help-modal > div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: white;
+
+    border-radius: 10px;
+}
+
+#help-modal-close {
+    color: #aaa;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-size: 32px;
+    width: 48px;
+    text-align: center;
+
+    text-decoration: none;
+}
+#help-modal-close:hover {
+    color: black;
+}
+
+#help-modal div h1 {
+    margin: 0 0 10px;
+}
+
+.gh-link {
+    text-decoration: none;
+    color: #0366d6;
+}
+.gh-link:hover {
+    text-decoration: underline;
+}
+
+.hotkey-col-1 {
+    width: 6ch;
+}
+
+.help-made-with {
+    font-size: 0.85em;
+}
 /* footer {
     display: block;
     position: fixed;

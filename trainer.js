@@ -1,4 +1,16 @@
 /*jshint browser: true, devel: true*/
+
+// TODO:
+// - it'd be cool if the buttons were a bit more reactive, maybe scale slightly on hover?
+//      - https://codepen.io/lbebber/pen/rawQKR
+
+// - Info modal for controls and credits and github link and such
+//      - https://css-tricks.com/considerations-styling-modal/
+//      - https://www.appcues.com/blog/67-open-source-modal-window-plugins-made-with-jquery-javascript-css-and-more
+//      - https://codepen.io/imprakash/pen/GgNMXO
+//      - https://www.w3schools.com/howto/howto_css_modals.asp
+//      - https://codepen.io/timothylong/pen/HhAer?editors=1100
+
 (function () {
     var pi, entered = "", errors = 0, keys, hintShown = false;
     var loadingEl, centreEl, piEl, hintEl;
@@ -95,6 +107,20 @@
             toggleHint();
         });
 
+        let helpModal = document.getElementById('help-modal');
+        let toggleModal = function () {
+            helpModal.classList.toggle('modal-hidden');
+            helpModal.classList.toggle('modal-visible');
+        }
+        document.getElementById('help-modal-btn').addEventListener('click', toggleModal);
+        document.getElementById('help-modal-close').addEventListener('click', toggleModal);
+        window.onclick = function(event) {
+            if (event.target == helpModal) {
+                toggleModal();
+            }
+        }
+
+
         window.addEventListener("keydown", function (e) {
             // TODO: These are depreciated
             var keyCode = e.which || e.keyCode;
@@ -167,7 +193,7 @@
     function reset() {
         entered = "";
         errors = 0;
-        piEl.innerText = "";
+        showEntered();
         updateInfos();
 
         anime({
