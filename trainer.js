@@ -1,16 +1,4 @@
 /*jshint browser: true, devel: true*/
-
-// TODO:
-// - it'd be cool if the buttons were a bit more reactive, maybe scale slightly on hover?
-//      - https://codepen.io/lbebber/pen/rawQKR
-
-// - Info modal for controls and credits and github link and such
-//      - https://css-tricks.com/considerations-styling-modal/
-//      - https://www.appcues.com/blog/67-open-source-modal-window-plugins-made-with-jquery-javascript-css-and-more
-//      - https://codepen.io/imprakash/pen/GgNMXO
-//      - https://www.w3schools.com/howto/howto_css_modals.asp
-//      - https://codepen.io/timothylong/pen/HhAer?editors=1100
-
 (function () {
     var pi, entered = "", errors = 0, keys, hintShown = false;
     var loadingEl, centreEl, piEl, hintEl;
@@ -19,27 +7,13 @@
     var inputMOBILE;
 
     keys = {
-        48: 0,
-        49: 1,
-        50: 2,
-        51: 3,
-        52: 4,
-        53: 5,
-        54: 6,
-        55: 7,
-        56: 8,
-        57: 9,
-        96: 0,
-        97: 1,
-        98: 2,
-        99: 3,
-        100: 4,
-        101: 5,
-        102: 6,
-        103: 7,
-        104: 8,
-        105: 9
+        digits: {},
+        reset: 'KeyR',
+        hint: 'KeyH'
     };
+    for (let i = 0; i < 10; i++) {
+        keys.digits['Digit' + i] = i;
+    }
 
     if (document.readyState === "complete")
         init();
@@ -120,32 +94,23 @@
             }
         }
 
-
         window.addEventListener("keydown", function (e) {
-            // TODO: These are depreciated
-            var keyCode = e.which || e.keyCode;
+            let keyCode = e.code;
 
             // Backspace
-            if (keyCode === 8 && entered.length > 0) {
-                entered = entered.substring(0, entered.length - 1);
-                e.preventDefault();
-            }
+            // if (keyCode === 8 && entered.length > 0) {
+            //     entered = entered.substring(0, entered.length - 1);
+            //     e.preventDefault();
+            // }
 
-            // TODO: Maybe these should be letter keys?
-
-            // Delete Key
-            else if (keyCode == 46) {
+            if (keyCode == keys.reset) {
                 reset();
             }
-
-            // Space
-            else if (keyCode === 32) {
+            else if (keyCode == keys.hint) {
                 toggleHint();
             }
-
-            // Number
-            else if (keys[keyCode] !== undefined) {
-                let key = keys[keyCode].toString();
+            else if (keys.digits[keyCode] !== undefined) {
+                let key = keys.digits[keyCode].toString();
                 if (pi.charAt(entered.length) === key) {
                     // They've pressed the right key!
                     entered = entered + "" + key;
