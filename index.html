@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -16,16 +16,15 @@
     </head>
     <body>
         <div id="help">
-            <!-- <a href="#help-modal"><img src="images/info.png"></a> -->
-            <input type="image" src="images/info.png" id="help-modal-btn"/>
+            <input type="image" src="images/info.png" id="help-modal-btn" alt="Open help modal"/>
         </div>
         <div id="loading" style="display: block; opacity: 1;">Loading...</div>
         <div id="centre" style="display: none; opacity: 0;">
             <div id="three">3.<input type="number" id="input-MOBILE"/></div>
             <div id="pi"></div>
             <div id="buttons">
-                <input type="image" src="images/hint.png" title="Toggle hint" id="hint-button"/>
-                <input type="image" src="images/reset.png" title="Clear all digits" id="reset-button"/>
+                <input type="image" src="images/hint.png" title="Toggle hint" id="hint-button" alt="Toggle hint"/>
+                <input type="image" src="images/reset.png" title="Clear all digits" id="reset-button" alt="Clear all digits"/>
             </div>
             <div class="info-box">Digits: <span id="digits-count">0</span></div>
             <div class="info-box">Errors: <span id="errors-count">0</span></div>
@@ -63,26 +62,3 @@
         </div>
     </body>
 </html>
-
-<!-- <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>PI Trainer</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <main id="main">
-            <div id="loading" style="display: block;">
-                Loading...
-            </div>
-            <div id="pi-text" style="display: none;">
-                <span id="pi-start"><span id="pi-three">3</span><span id="pi-decimal">.</span></span><span id="pi-entry"></span><span id="pi-hint" title="Hint">&nbsp;</span><span id="pi-digits-count" title="Digit count: Click to reset">0</span>
-            </div>
-        </main>
-        <footer>
-            PI Trainer by Jacob Lindahl<br />&copy; Copyright 2015-2016 by Jacob Lindahl<br />Thanks to <a href="http://www.geom.uiuc.edu/~huberty/math5337/groupe/digits.html" target="_blank">Linux</a> for 10,000 digits of &pi;!
-        </footer>
-        <script src="trainer.js"></script>
-    </body>
-</html-->

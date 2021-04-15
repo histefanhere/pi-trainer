@@ -1,7 +1,7 @@
 /*jshint browser: true, devel: true*/
 (function () {
     var pi, entered = "", errors = 0, keys, hintShown = false;
-    var loadingEl, centreEl, piEl, hintEl;
+    var loadingEl, centreEl, piEl;
     var digitsCountEl, errorsCountEl, percentCountEl;
     var resetBtn, hintBtn;
     var inputMOBILE;
@@ -27,14 +27,13 @@
         loadingEl = document.getElementById("loading");
         centreEl = document.getElementById('centre');
         piEl = document.getElementById("pi");
-        piHintEl = document.getElementById("pi-hint");
 
         digitsCountEl = document.getElementById("digits-count");
         errorsCountEl = document.getElementById("errors-count");
         percentCountEl = document.getElementById("percent-count");
 
         resetBtn = document.getElementById('reset-button');
-        hintBtn = document.getElementById('hint-button')
+        hintBtn = document.getElementById('hint-button');
 
         inputMOBILE = document.getElementById('input-MOBILE');
 
@@ -45,7 +44,7 @@
     function getPi() {
         var xhr = new XMLHttpRequest();
         xhr.open("get", "pi.txt");
-        xhr.onload = function () { onPi(this) };
+        xhr.onload = function () { onPi(this); };
         xhr.send();
     }
     
@@ -54,10 +53,10 @@
 
         console.log("Pi finished loading.");
 
-        let tl = anime.timeline({
+        var tl = anime.timeline({
             duration: 500,
             easing: 'easeInOutCubic'
-        })
+        });
         tl
         .add({
             targets: loadingEl,
@@ -81,21 +80,21 @@
             toggleHint();
         });
 
-        let helpModal = document.getElementById('help-modal');
-        let toggleModal = function () {
+        var helpModal = document.getElementById('help-modal');
+        var toggleModal = function () {
             helpModal.classList.toggle('modal-hidden');
             helpModal.classList.toggle('modal-visible');
-        }
+        };
         document.getElementById('help-modal-btn').addEventListener('click', toggleModal);
         document.getElementById('help-modal-close').addEventListener('click', toggleModal);
         window.onclick = function(event) {
             if (event.target == helpModal) {
                 toggleModal();
             }
-        }
+        };
 
         window.addEventListener("keydown", function (e) {
-            let keyCode = e.code;
+            var keyCode = e.code;
 
             // Backspace
             // if (keyCode === 8 && entered.length > 0) {
@@ -110,7 +109,7 @@
                 toggleHint();
             }
             else if (keys.digits[keyCode] !== undefined) {
-                let key = keys.digits[keyCode].toString();
+                var key = keys.digits[keyCode].toString();
                 if (pi.charAt(entered.length) === key) {
                     // They've pressed the right key!
                     entered = entered + "" + key;
@@ -135,7 +134,7 @@
     function showEntered() {
         piEl.innerText = entered;
         if (hintShown) {
-            let hintDigit = pi.charAt(entered.length);
+            var hintDigit = pi.charAt(entered.length);
             piEl.innerHTML += "<span id=\"hint\">" + hintDigit + "</span>";
         }
     }
@@ -167,7 +166,7 @@
             easing: "easeOutBack",
             duration: 500,
             complete: anime.set(resetBtn, {rotate: 0})
-        })
+        });
     }
 
     function updateInfos () {
