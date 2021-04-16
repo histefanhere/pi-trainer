@@ -83,23 +83,40 @@ body, html {
     float: right;
 }
 
-#buttons input {
+#buttons div {
+    padding: 0;
+    margin-left: 25px;
+}
+
+.btn input {
     appearance: none;
     border: none;
 
-    padding: 0;
-    margin-left: 25px;
+    width: 100%;
+    height: 100%;
+}
 
-    display: inline;
+.btn {
+    display: inline-block;
 
     height: 30px;
     width: 30px;
+
+    transition: transform 100ms;
+    transform: scale(1, 1) translate3d(0,0,0);
 }
 
-#buttons input:focus {
+.btn:hover{
+    transform:scale(1.1,1.1) translate3d(0,0,0);
+  }
+
+.btn input:focus {
     outline: none;
 }
 
+#hint-button {
+    transition: transform 100ms, filter 500ms; 
+}
 .hintShown {
     /* Generated from this *very* cool project! https://codepen.io/sosuke/pen/Pjoqqp */
     filter: invert(49%) sepia(96%) saturate(2265%) hue-rotate(145deg) brightness(98%) contrast(101%);
@@ -120,11 +137,6 @@ body, html {
     left: 0;
 
     padding: 20px;
-}
-
-#help input {
-    height: 30px;
-    width: 30px;
 }
 
 #help-modal {
