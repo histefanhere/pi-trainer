@@ -85,7 +85,7 @@
             helpModal.classList.toggle('modal-hidden');
             helpModal.classList.toggle('modal-visible');
         };
-        document.getElementById('help-modal-btn').addEventListener('click', toggleModal);
+        document.getElementById('help-modal-icon-btn').addEventListener('click', toggleModal);
         document.getElementById('help-modal-close').addEventListener('click', toggleModal);
         window.onclick = function(event) {
             if (event.target == helpModal) {

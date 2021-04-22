@@ -1,0 +1,16 @@
+[data-theme="dark"] {
+  background-color: #1F2933 !important;
+  color: #E4E7EB;
+}
+
+[data-theme="dark"] .bg-light {
+  background-color: #121212 !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #000 !important;
+}
+
+[data-theme="dark"] .bg-black {
+  background-color: #eee !important;
+}

@@ -1,3 +1,6 @@
+---
+---
+
 @viewport {
     width: device-width ;
     zoom: 1.0 ;
@@ -9,9 +12,13 @@ body, html {
     width: 100%;
     height: 100%;
     font-family: 'Noto Sans', sans-serif;
-    background-color: #fcfcfc;
     /* cursor: default; */
+    background-color: #fcfcfc;
 }
+
+/* .bg-white {
+    background-color: #fcfcfc;
+} */
 
 #loading {
     font-size: 5em;
@@ -88,7 +95,7 @@ body, html {
     margin-left: 25px;
 }
 
-.btn input {
+.icon-btn input {
     appearance: none;
     border: none;
 
@@ -96,7 +103,7 @@ body, html {
     height: 100%;
 }
 
-.btn {
+.icon-btn {
     display: inline-block;
 
     height: 30px;
@@ -106,11 +113,11 @@ body, html {
     transform: scale(1, 1) translate3d(0,0,0);
 }
 
-.btn:hover{
+.icon-btn:hover{
     transform:scale(1.1,1.1) translate3d(0,0,0);
   }
 
-.btn input:focus {
+.icon-btn input:focus {
     outline: none;
 }
 
